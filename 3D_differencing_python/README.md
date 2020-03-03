@@ -15,7 +15,6 @@ Post earthquake topography:
 http://opentopo.sdsc.edu/lidarDataset?opentopoID=OTLAS.052018.2444.1
 
 
-
 Instructions:
 
 1) Place the compare.las (pre-event) and reference.las (post-event) in the directory las_diff
