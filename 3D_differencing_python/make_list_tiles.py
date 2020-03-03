@@ -1,6 +1,6 @@
 # Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
 #  
-# Chelsea Scott: cpscott1@asu.edu(corresponding author)
+# Chelsea Scotta: cpscott1@asu.edu(corresponding author)
 # Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
 # %Copyright (c) 2007 The Regents of the University of California

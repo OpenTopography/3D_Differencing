@@ -1,6 +1,6 @@
 # Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
-#
-# Chelsea Scott: cpscott1@asu.edu(corresponding author)
+#  
+# Chelsea Scotta: cpscott1@asu.edu(corresponding author)
 # Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
 # %Copyright (c) 2007 The Regents of the University of California
@@ -24,8 +24,8 @@
 """
 @author: rockhopper
 """
-import numpy as np
-import matplotlib.pyplot as plt
+import numpy as np 
+import matplotlib.pyplot as plt 
 import statistics
 from scipy.interpolate import griddata
 from scipy.spatial.transform import Rotation as R
@@ -37,7 +37,7 @@ window_compare=35 # THIS MUST BE DEFINED FROM BEFORE
 epsg = 2444; # this needs to be set for individual datasets
 
 
-no_data = -999 # no data value for creating the tiffs.
+no_data = -999 # no data value for creating the tiffs. 
 
 
 def plot_range(data):
@@ -45,15 +45,15 @@ def plot_range(data):
     return color_range
 
 def plot_png_3d_diff(grid_x, grid_y, points, data_to_grid,name):
-
-    #grid the data. The linear grid help id nan's.
+    
+    #grid the data. The linear grid help id nan's. 
     nan_grid = griddata(points, data_to_grid, (grid_x, grid_y), method='linear')
     data_grid = griddata(points, data_to_grid, (grid_x, grid_y), method='nearest')
     sum_data = np.sum([nan_grid*0,data_grid], axis=0)
-
-    #determine the range for plotting
+    
+    #determine the range for plotting 
     col_r = plot_range(data_to_grid)
-
+    
     #make the plot
     fig1 = plt
     c1 = plt.pcolor(grid_x, grid_y, sum_data,vmin = -col_r, vmax = col_r, cmap = 'bwr_r')
@@ -65,20 +65,20 @@ def plot_png_3d_diff(grid_x, grid_y, points, data_to_grid,name):
     plt.savefig(name)
     plt.close()
     del fig1, c1
-
+    
 def prep_for_quiver(points,data,grid_x,grid_y,down_space):
     dx_grid = griddata(points, data, (grid_x, grid_y), method='nearest')
     dx_grid_small = dx_grid[0:-1:down_space,0:-1:down_space]
     dx_grid_small = dx_grid_small.flatten()
-    return dx_grid_small
+    return dx_grid_small    
 
 def make_geotiff(grid_x, grid_y, points, data_to_grid,name,epsg_data,no_data):
-
-    #grid the data. The linear grid help id nan's.
+    
+    #grid the data. The linear grid help id nan's. 
     nan_grid = griddata(points, data_to_grid, (grid_x, grid_y), method='linear')
     data_grid = griddata(points, data_to_grid, (grid_x, grid_y), method='nearest')
     sum_data = np.sum([nan_grid*0,data_grid], axis=0)
-
+    
     #set areas without data and with very large displacements to the no_data value
     a = np.isnan(sum_data)*no_data
     x_list = np.arange(0,sum_data.flatten().size,1)
@@ -87,16 +87,16 @@ def make_geotiff(grid_x, grid_y, points, data_to_grid,name,epsg_data,no_data):
     data_grid_flatten= data_grid.flatten()
     data_grid_flatten[b1]=no_data
     data_grid_flatten[b2]=no_data
-
-
+    
+    
     #reshape, as expected for geotiffs
     data_grid1= data_grid_flatten.reshape( data_grid.shape)
     data_grid1_ta=np.rot90(data_grid1)
-
-    #create the affine transform
+    
+    #create the affine transform 
     aff=Affine.translation(min(x)-window_compare/2, max(y)+window_compare/2)*Affine.scale(window_compare,-window_compare)
 
-    #coordinate system for geotiffs
+    #coordinate system for geotiffs 
     a,b=data_grid1.shape
     epsg_code = 'epsg:'+str(epsg_data)
     c=CRS.from_dict(init=epsg_code)
@@ -105,8 +105,8 @@ def make_geotiff(grid_x, grid_y, points, data_to_grid,name,epsg_data,no_data):
 
     with rio.open(name, 'w', **d) as outf:
         outf.write(data_grid1_ta, 1)
-    return
-
+    return    
+    
 #load the ICP results, saved in disp.txt
 disp=np.loadtxt('disp.txt',usecols=range(14))
 x = disp[:,0]+window_compare/2
@@ -131,7 +131,7 @@ points = np.transpose(A)
 
 #transform the 3x3 rotation matrix to the rotation in x,y,z
 x_rot = []
-y_rot = []
+y_rot = [] 
 z_rot = []
 
 for i in range(len(x)):
@@ -141,11 +141,11 @@ for i in range(len(x)):
     x_rot.append(r1[0])
     y_rot.append(r1[1])
     z_rot.append(r1[2])
-
-# make a quiver plot showing the displacements
-dx_grid_small = prep_for_quiver(points,dx,grid_x,grid_y,5)
-dy_grid_small = prep_for_quiver(points,dy,grid_x,grid_y,5)
-dz_grid_small = prep_for_quiver(points,dz,grid_x,grid_y,5)
+    
+# make a quiver plot showing the displacements 
+dx_grid_small = prep_for_quiver(points,dx,grid_x,grid_y,5)    
+dy_grid_small = prep_for_quiver(points,dy,grid_x,grid_y,5)   
+dz_grid_small = prep_for_quiver(points,dz,grid_x,grid_y,5)   
 
 grid_x_small = grid_x[0:-1:5,0:-1:5]
 grid_y_small = grid_y[0:-1:5,0:-1:5]
@@ -155,7 +155,7 @@ grid_y_small = grid_y_small.flatten()
 horizontal_disp = np.sqrt(dx_grid_small**2 + dy_grid_small**2)
 x_list = np.arange(0,grid_x_small.size,1)
 a = x_list[ horizontal_disp < np.median(horizontal_disp)*5 ];
-
+    
 fig=plt
 q = plt.quiver(grid_x_small[a],grid_y_small[a],dx_grid_small[a],dy_grid_small[a])
 plt.quiverkey(q, X=0.3, Y=1.1, U=10,label='Quiver key, length = 4', labelpos='E')
@@ -167,21 +167,32 @@ plt.xlabel("Easting")
 plt.ylabel("Northing")
 plt.savefig('3D_displacements')
 plt.close()
-
-#make the displacement plots
+     
+#make the displacement plots  
 plot_png_3d_diff(grid_x, grid_y, points,dx, "dx.png")
 plot_png_3d_diff(grid_x, grid_y, points,dy, "dy.png")
-plot_png_3d_diff(grid_x, grid_y, points,dz, "dz.png")
+plot_png_3d_diff(grid_x, grid_y, points,dz, "dz.png")    
 
 #make the rotation plots
 plot_png_3d_diff(grid_x, grid_y, points,np.array(x_rot), "x_rot.png")
 plot_png_3d_diff(grid_x, grid_y, points,np.array(y_rot), "y_rot.png")
-plot_png_3d_diff(grid_x, grid_y, points,np.array(z_rot), "z_rot.png")
+plot_png_3d_diff(grid_x, grid_y, points,np.array(z_rot), "z_rot.png") 
 
-#make the geotiffs
+#make the geotiffs 
 make_geotiff(grid_x, grid_y, points,dx, "dx.tif",epsg,no_data)
 make_geotiff(grid_x, grid_y, points,dy, "dy.tif",epsg,no_data)
 make_geotiff(grid_x, grid_y, points,dz, "dz.tif",epsg,no_data)
 make_geotiff(grid_x, grid_y, points,np.array(x_rot), "rot_x.tif",epsg,no_data)
 make_geotiff(grid_x, grid_y, points,np.array(y_rot), "rot_y.tif",epsg,no_data)
 make_geotiff(grid_x, grid_y, points,np.array(z_rot), "rot_z.tif",epsg,no_data)
+
+    
+    
+    
+  
+    
+    
+    
+    
+    
+    
