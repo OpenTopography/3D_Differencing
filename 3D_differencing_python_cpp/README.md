@@ -1,8 +1,8 @@
-# Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
-#  
-# Chelsea Scotta: cpscott1@asu.edu(corresponding author)
-#
-# Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
+Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
+  
+Chelsea Scotta: cpscott1@asu.edu(corresponding author)
+
+Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
 Uses OpenTopography's fork of libicp - https://github.com/OpenTopography/libicp
 
