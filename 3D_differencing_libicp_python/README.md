@@ -1,6 +1,6 @@
 Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
 
-Chelsea Scotta: cpscott1@asu.edu(corresponding author)
+Chelsea Scott: cpscott1@asu.edu(corresponding author)
 
 Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
@@ -11,12 +11,12 @@ Instructions:
 Place the compare.las and reference.las in the directory las_diff
 
 Download lastools: https://rapidlasso.com/lastools/ Then run lastile to tile the datasets. Specify tilesize. For this example, the tile size is 51 m.
+The lasreader from laslib is called to do the ICP.
 
 lastile -i compare.las -tile_size 51 -o las_diff/compare lastile -i reference.las -tile_size 51 -buffer 15 -o las_diff/reference
 
 make_list_tiles.y: This script creates tiles.txt which has x, y coordinates of the tiles in common to both datasets.
 
-Download and complile on c++: laslib : https://github.com/LAStools/LAStools/tree/master/LASli The lasreader from laslib is called to do the ICP.
 
 LibICP: https://github.com/symao/libicp
 
