@@ -1,6 +1,7 @@
 Measuring change at the Earth’s surface: On-Demand vertical and 3D topographic differencing implemented in OpenTopography
   
 Chelsea Scott: cpscott1@asu.edu(corresponding author)
+
 Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
 This code performs 3D differencing on Matlab. This script will calculate the displacement and rotation required to align windowed subsets of point cloud topography. 
