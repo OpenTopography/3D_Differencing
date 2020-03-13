@@ -22,10 +22,10 @@ This option uses Python and c++ functions to perform ICP differencing. The set-u
 Pre- and post- earthquake topographic datasets for the M7 Kumamoto, Japan, earthquake are available here. 
 
 Pre earthquake topography:
-http://opentopo.sdsc.edu/lidarDataset?opentopoID=OTLAS.052018.2444.2
+https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.2
 
 Post earthquake topography:
-http://opentopo.sdsc.edu/lidarDataset?opentopoID=OTLAS.052018.2444.1
+https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.1
 
 
 More information about ICP differencing applied to earthquakes is available in these publications: 
