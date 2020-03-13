@@ -9,10 +9,10 @@ This code performs 3D differencing on Matlab. This script will calculate the dis
 This code has been applied to calculate 3D displacement during the M7 Kumamoto, Japan, earthquake. The data is available here from OpenTopography: 
 
 Pre earthquake topography:
-http://opentopo.sdsc.edu/lidarDataset?opentopoID=OTLAS.052018.2444.2
+https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.2
 
 Post earthquake topography:
-http://opentopo.sdsc.edu/lidarDataset?opentopoID=OTLAS.052018.2444.1
+https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.1
 
 
 These scripts must be downloaded from Matlab: 
