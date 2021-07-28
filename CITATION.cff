@@ -15,7 +15,7 @@ authors:
 - family-names: "Arrowsmith"
   given-names: "Ramon"
   orcid: https://orcid.org/0000-0003-1756-3697
-title: "On-Demand vertical and 3D topographic differencing implemented in OpenTopography"
+title: "On-Demand 3D topographic differencing implemented in OpenTopography"
 version: 1.1.0
 date-released: 2020-08-06
 url: "https://github.com/OpenTopography/3D_Differencing"
