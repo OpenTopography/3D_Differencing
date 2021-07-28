@@ -3,6 +3,7 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Chelsea"
   given-names: "Scott"
+  orcid: https://orcid.org/0000-0002-3884-4693
 - family-names: "Phan"
   given-names: "Minh"
   orcid: https://orcid.org/0000-0002-2806-5450
