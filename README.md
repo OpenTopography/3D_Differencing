@@ -34,12 +34,13 @@ https://portal.opentopography.org/lidarDataset?opentopoID=OTLAS.052018.2444.1
 
 
 More information about topographic differencing and the ICP implementation available in: 
+
 Scott, C., Phan, M., Nandigam, V., Crosby, C., and Arrowsmith, J R., 2021, Measuring change at Earth’s surface: On-demand vertical and threedimensional topographic differencing implemented in OpenTopography: Geosphere, v. 17, no. 4, p. 1318–1332, https://doi.org/10.1130/GES02259.1.
 
 More information about ICP differencing applied to earthquakes is available in these publications: 
+
 Scott, C. P., Arrowsmith, J. R., Nissen, E., Lajoie, L., Maruyama, T., & Chiba, T. (2018). 
-The M7 2016 Kumamoto, Japan, Earthquake: 3-D Deformation Along the Fault and Within the Damage Zone Constrained From Differential Lidar Topography. Journal of Geophysical Research: 
-Solid Earth. https://doi.org/10.1029/2018JB015581
+The M7 2016 Kumamoto, Japan, Earthquake: 3-D Deformation Along the Fault and Within the Damage Zone Constrained From Differential Lidar Topography. Journal of Geophysical Research: Solid Earth. https://doi.org/10.1029/2018JB015581
 
 Scott, C., Champenois, J., Klinger, Y., Nissen, E., Maruyama, T., Chiba, T., & Arrowsmith, R. (2019). 
 2016 M7 Kumamoto, Japan, Earthquake Slip Field Derived From a Joint Inversion of Differential Lidar Topography, Optical Correlation, and InSAR Surface Displacements. 
