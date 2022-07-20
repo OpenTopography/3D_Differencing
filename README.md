@@ -10,6 +10,9 @@ Chelsea Scott: cpscott1@asu.edu(corresponding author)
 
 Minh Phan, Viswanath Nandigam, Christopher Crosby, Ramon Arrowsmith
 
+Find more information in this publication: 
+
+Scott, C., Phan, M., Nandigam, V., Crosby, C., and Arrowsmith, J R., 2021, Measuring change at Earth’s surface: On-demand vertical and threedimensional topographic differencing implemented in OpenTopography: Geosphere, v. 17, no. 4, p. 1318–1332, https://doi.org/10.1130/GES02259.1.
 
 A windowed implementation of the iterative closest point (ICP) algorithm is used to calculate displacement and rotation fields from topographic point clouds 
 that span a geologic event of interest. This technique resolves surface deformation along and adjacent to active faults where other geodetic datasets commonly 
